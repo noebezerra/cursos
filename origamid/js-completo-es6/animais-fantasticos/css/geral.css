@@ -271,3 +271,22 @@ body {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+[data-semana]::after {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #f54;
+  border-radius: 50%;
+  margin-left: 4px;
+  border: 1px solid #000;
+}
+[data-semana]::after.aberto {
+  background: #3f4;
+}
+.btc-preco {
+  background: #3f4;
+  padding: 0.2rem 0.5rem;
+  font-weight: bold;
+  border-radius: 2px;
+}
