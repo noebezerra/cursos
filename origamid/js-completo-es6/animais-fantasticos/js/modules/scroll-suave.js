@@ -6,11 +6,11 @@ export default function initScrollSuave() {
 
   function scrollToSection(event) {
     event.preventDefault();
-    const href = event.currentTarget.getAttribute("href");
+    const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
     section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+      behavior: 'smooth',
+      block: 'start',
     });
     // forma alternativa
     // const topo = section.offsetTop;
@@ -21,6 +21,6 @@ export default function initScrollSuave() {
   }
 
   linksInternos.forEach((link) => {
-    link.addEventListener("click", scrollToSection);
+    link.addEventListener('click', scrollToSection);
   });
 }
