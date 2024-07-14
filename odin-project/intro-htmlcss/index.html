@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>Hello world</p>
+  <a href="https://www.theodinproject.com/about">About The Odin Project</a>
+  <!-- 
+  O atributo rel é usado para descrever a relação entre a página atual e o documento vinculado 
+  noopener impede que o link aberto tenha acesso a pagina da web da qual foi aberto.
+  noreferrer impede que o link aberto saiba qual página da web ou recurso tem um link (ou referencia) para ele. Ele também inclui o comportamento noopener e, portanto, pode ser usado sozinho também.
+  Isso previne ataque de phishing
+  Note que você pode ficar bem se esquecer de adicionar, rel="noopener noreferrer"já que versões mais recentes de navegadores fornecem segurança se apenas target="_blank"estiver presente
+  -->
+  <a href="https://www.theodinproject.com/about" target="_blank" rel="noopener noreferrer">About The Odin Project</a>
+
+  <a href="pages/about.html">Go to About</a>
+</body>
+
+</html>
