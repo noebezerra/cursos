@@ -16,12 +16,39 @@ Verificar a versão do Angular
 ### Guias
 
 Criando um módulo\
-`ng generate module <nome_do_modulo>`\
-`ng g m <nome_do_modulo>`\
-Criando um módudo com rota\
-`ng g m <nome_do_modulo> --routing`\
-Criando um componente\
-`ng generate component <nome_do_componente>`\
-`ng g c <nome_do_componente>`\
-Criando interface\
-`ng g interface <diretorio/nome_da_interface>`
+
+```bash
+ng generate module <nome_do_modulo>
+```
+
+```bash
+ng g m <nome_do_modulo>
+```
+
+Criando um módudo com rota
+
+```bash
+ng g m <nome_do_modulo> --routing
+```
+
+Criando um componente
+
+```bash
+ng generate component <nome_do_componente>
+```
+
+```bash
+ng g c <nome_do_componente>
+```
+
+Criando interface
+
+```bash
+ng g interface <diretorio/nome_da_interface>
+```
+
+Criando pipes
+
+```bash
+ng g pipes <diretorio/nome_do_pipe>
+```
