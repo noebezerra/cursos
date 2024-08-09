@@ -1,0 +1,48 @@
+{
+  "courses": [
+    {
+      "name": "JavaScript",
+      "id": "1"
+    },
+    {
+      "id": "158b",
+      "name": "Javascript",
+      "category": "front-end"
+    },
+    {
+      "id": "2aaa",
+      "name": "Node.js",
+      "category": "back-end"
+    },
+    {
+      "id": "AC68Lm7",
+      "name": "Node",
+      "category": "back-end"
+    },
+    {
+      "id": "gDUaqgA",
+      "name": "Java",
+      "category": "back-end"
+    },
+    {
+      "id": "DKGUz8V",
+      "name": "PHP",
+      "category": "back-end"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": null
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

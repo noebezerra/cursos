@@ -52,3 +52,9 @@ Criando pipes
 ```bash
 ng g pipes <diretorio/nome_do_pipe>
 ```
+
+Criando guarda de rota
+
+```bash
+ng g resolver <diretorio/nome_do_guarda>
+```
