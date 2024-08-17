@@ -1,0 +1,18 @@
+services:
+  oracle:
+    container_name: dboracle
+    image: gvenzl/oracle-xe:latest
+    environment:
+      ORACLE_PASSWORD: root
+      # ORACLE_RANDOM_PASSWORD: true
+      APP_USER: cursooracle
+      APP_USER_PASSWORD: cursooracle
+    ports:
+      - 1521:1521
+
+    # Provide healthcheck script options for startup
+    # options: >-
+    #   --health-cmd healthcheck.sh
+    #   --health-interval 10s
+    #   --health-timeout 5s
+    #   --health-retries 10
