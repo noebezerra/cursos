@@ -1,12 +1,15 @@
 services:
   oracle:
     container_name: dboracle
-    image: gvenzl/oracle-xe:latest
+    image: gvenzl/oracle-xe:21
     environment:
       ORACLE_PASSWORD: root
       # ORACLE_RANDOM_PASSWORD: true
       APP_USER: cursooracle
       APP_USER_PASSWORD: cursooracle
+    volumes:
+      - ./oracle-data:/opt/oracle/oradata
+      - ./scripts:/opt/oracle/scripts
     ports:
       - 1521:1521
 
@@ -16,3 +19,7 @@ services:
     #   --health-interval 10s
     #   --health-timeout 5s
     #   --health-retries 10
+
+volumes:
+  oracle-data:
+  scripts:
