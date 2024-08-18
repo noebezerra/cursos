@@ -13,10 +13,29 @@ docker compose up -d
 Para se conectar com o [Dbeaver](https://dbeaver.com/) use os seguintes parametros
 
 Host: `localhost` ou `127.0.0.1`\
-Database: `xe`\
+Database: `asdasdsdxe`\
 Nome de usuário: `system`\
 Senha: `root`
+
+Acessando o container
+
+```bash
+docker exec -it <container> /bin/bash
+```
 
 #### Adicional
 
 Para visualizar o esquema `SYSTEM`, acesse as configurações do Dbaver e na guia Geral terá `Schemas/Usuários`, clicando nela poderá incluir o `SYSTEM`
+
+#### Scripts
+
+Para executar os scripts, acesse o container e entre no Oracle SQL Plus com `sqlplus` e execute os comandos dos scripts abaixo:
+
+```bash
+@/opt/oracle/scripts/Criacao_Esquemas.sql
+@/opt/oracle/scripts/Carga_Tabelas_Cadastrais.sql
+@/opt/oracle/scripts/Carga_Notas.sql
+@/opt/oracle/scripts/Carga_Items_Notas.sql
+```
+
+Digite `commit` e depois barra `/` e por fim `ENTER`
