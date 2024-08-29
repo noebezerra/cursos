@@ -4,25 +4,29 @@
       "id": 1,
       "conteudo": "Que bom que você veio",
       "autoria": "Noé Bezerra",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": 2,
       "conteudo": "Que bom que você veio",
       "autoria": "Noé Neto",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "favorito": false
     },
     {
       "id": 3,
       "conteudo": "Que bom que você veio",
       "autoria": "Noé",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "favorito": false
     },
     {
       "id": 4,
       "conteudo": "asdasd",
       "autoria": "asd",
-      "modelo": "modelo2"
+      "modelo": "modelo2",
+      "favorito": true
     }
   ]
 }
