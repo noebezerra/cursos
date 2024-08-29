@@ -11,6 +11,7 @@ export class ListarPensamentoComponent implements OnInit {
   listaPensamentos: Pensamento[] = [];
   page: number = 1;
   hasPensamentos: boolean = true;
+  filtro: string = '';
 
   constructor(private service: PensamentoService) {}
 
@@ -21,12 +22,20 @@ export class ListarPensamentoComponent implements OnInit {
   }
 
   loadPensamentos() {
-    this.service.listar(++this.page).subscribe((pensamentos) => {
+    this.service.listar(++this.page, this.filtro).subscribe((pensamentos) => {
       if (pensamentos.length) {
         this.listaPensamentos.push(...pensamentos);
       } else {
         this.hasPensamentos = false;
       }
+    });
+  }
+
+  searchPensamentos() {
+    this.page = 1;
+    this.service.listar(this.page, this.filtro).subscribe((pensamentos) => {
+      this.listaPensamentos = pensamentos;
+      this.hasPensamentos = true;
     });
   }
 }
