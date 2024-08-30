@@ -19,14 +19,14 @@
       "conteudo": "Que bom que você veio",
       "autoria": "Noé",
       "modelo": "modelo3",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 4,
       "conteudo": "asdasd",
       "autoria": "asd",
       "modelo": "modelo2",
-      "favorito": true
+      "favorito": false
     }
   ]
 }
