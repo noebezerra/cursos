@@ -8,7 +8,7 @@ services:
       APP_USER: cursooracle
       APP_USER_PASSWORD: cursooracle
     volumes:
-      - ./oracle-data:/opt/oracle/oradata
+      - ./oradata:/opt/oracle/oradata
       - ./scripts:/opt/oracle/scripts
     ports:
       - 1521:1521
@@ -21,5 +21,5 @@ services:
     #   --health-retries 10
 
 volumes:
-  oracle-data:
+  oradata:
   scripts:
