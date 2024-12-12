@@ -6,6 +6,9 @@ Formação Node.js da Alura: [Node.js: criando uma API Rest com Express e MongoD
 
 Necessário criar um banco de dados no [mongodb.com](https://www.mongodb.com/pt-br)
 
+> [!TIP]
+> Caso ocorra erro ao tentar se conectar no banco de dados, verifique se seu IP está autorizado no _Network Acess_ em [mongodb.com](https://www.mongodb.com/pt-br)
+
 # Início
 
 Após criar o banco de dados MongoDB insira as variáveis de ambiente no arquivo `.env` com base em `.env-example`

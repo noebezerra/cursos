@@ -15,6 +15,12 @@
     "express": "^4.21.1",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.4",
+    "mongoose-autopopulate": "^1.1.0",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0"
   }
 }

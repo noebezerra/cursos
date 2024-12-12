@@ -1,63 +1,69 @@
-import { autor } from '../models/Autor.js';
+import Error404 from '../erros/Error404.js';
+import { autor } from '../models/index.js';
 
 class AutorController {
-  static async listaAutores(req, res) {
+  static async listaAutores(req, res, next) {
     try {
-      const result = await autor.find({});
-      res.status(200).json(result);
+      const result = autor.find();
+      req.result = result;
+      next();
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: `Falha ao listar autores: ${error.message}` });
+      next(error);
     }
   }
 
-  static async listaAutoresPorId(req, res) {
+  static async listaAutoresPorId(req, res, next) {
     try {
       const id = req.params.id;
       const result = await autor.findById(id);
-      res.status(200).json(result);
+      if (result !== null) {
+        res.status(200).json(result);
+      } else {
+        next(new Error404('Id do Autor não localizado.'));
+      }
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: `Falha ao listar autores: ${error.message}` });
+      next(error);
     }
   }
 
-  static async atualizarAutor(req, res) {
+  static async atualizarAutor(req, res, next) {
     try {
       const id = req.params.id;
-      await autor.findByIdAndUpdate(id, req.body);
-      res.status(200).json({ message: 'Autor atualizado!' });
+      const result = await autor.findByIdAndUpdate(id, req.body);
+      if (!result) {
+        next(new Error404('Id do Autor não localizado.'));
+      } else {
+        res.status(200).json({ message: 'Autor atualizado!' });
+      }
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: `Falha ao listar autores: ${error.message}` });
+      next(error);
     }
   }
 
-  static async criarAutor(req, res) {
+  static async criarAutor(req, res, next) {
     try {
       const result = await autor.create(req.body);
       res
         .status(201)
         .json({ message: `Autor criado com sucesso!`, autor: result });
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: `Falha ao criar autor: ${error.message}` });
+      next(error);
     }
   }
 
-  static async deletarAutor(req, res) {
+  static async deletarAutor(req, res, next) {
     try {
       const id = req.params.id;
       const result = await autor.findByIdAndDelete(id);
-      res
-        .status(200)
-        .json({ message: `Autor excluído com sucesso!`, autor: result });
+      if (!result) {
+        next(new Error404('Id do Autor não localizado.'));
+      } else {
+        res
+          .status(200)
+          .json({ message: `Autor excluído com sucesso!`, autor: result });
+      }
     } catch (error) {
-      res.status(500).json({ message: `Falha na exclusão: ${error.message}` });
+      next(error);
     }
   }
 }
