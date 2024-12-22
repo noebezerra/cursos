@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Categoria',
       tableName: 'categorias',
+      paranoid: true, // permite que seja excluido sem ser excluido permanentemente
     }
   );
   return Categoria;

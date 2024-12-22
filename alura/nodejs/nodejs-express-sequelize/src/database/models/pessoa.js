@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         // scope: { status: 'matriculado' },
         as: 'aulasMatriculadas',
       });
+      Pessoa.hasMany(models.Matricula, {
+        foreignKey: 'estudante_id',
+        as: 'todasAsMatriculas',
+      });
     }
   }
   Pessoa.init(
@@ -25,6 +29,18 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Pessoa',
       tableName: 'pessoas',
+      // permite que seja excluido sem ser excluido permanentemente,
+      paranoid: true,
+      // escopo padrão: apenas pessoas ativos
+      defaultScope: {
+        where: { ativo: true },
+      },
+      // escopo personalizado: todas as pessoas
+      scopes: {
+        todosOsRegistros: {
+          where: {},
+        },
+      },
     }
   );
   return Pessoa;

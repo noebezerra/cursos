@@ -1,3 +1,5 @@
+const converteIds = require('../utils/conversorDeStringHelper.js');
+
 class Controller {
   constructor(entidadeService) {
     this.entidadeService = entidadeService;
@@ -7,7 +9,9 @@ class Controller {
     try {
       const listaDeRegistro = await this.entidadeService.pegaTodosOsRegistros();
       return res.status(200).json(listaDeRegistro);
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 
   async pegaPorId(req, res) {
@@ -18,16 +22,30 @@ class Controller {
         return res.status(404).json({ mensagem: `Nenhum registro encontrado` });
       }
       return res.status(200).json(resgistro);
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  async pegaUm(req, res) {
+    const { ...params } = req.params;
+    const where = converteIds(params);
+    try {
+      const umRegistro = await this.entidadeService.pegaUmRegistro(where);
+      return res.status(200).json(umRegistro);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 
   async atualiza(req, res) {
-    const { id } = req.params;
+    const { ...params } = req.params;
     const dadosAtualizados = req.body;
+    const where = converteIds(params);
     try {
       const foiAtualizado = await this.entidadeService.atualizaRegistro(
         dadosAtualizados,
-        Number(id)
+        where
       );
       if (!foiAtualizado) {
         return res
@@ -35,7 +53,9 @@ class Controller {
           .json({ mensagem: `Registro não foi atualizado` });
       }
       return res.status(200).json({ mensagem: `Atualizado com sucesso` });
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 
   async cria(req, res) {
@@ -49,7 +69,9 @@ class Controller {
       return res
         .status(201)
         .json({ mensagem: 'Criado com sucesso!', dado: criado });
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 
   async apaga(req, res) {
@@ -60,7 +82,9 @@ class Controller {
         res.status(404).json({ mesagem: `Registro não encontrado` });
       }
       res.status(200).json({ mesagem: `Registro apagado` });
-    } catch (error) {}
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   }
 }
 
