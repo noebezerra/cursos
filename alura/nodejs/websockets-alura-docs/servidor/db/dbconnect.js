@@ -5,14 +5,16 @@ const client = new MongoClient(
 );
 
 let documentosColecao;
+let usuariosColecao;
 
 try {
   await client.connect();
   const db = client.db('alura-websockets');
   documentosColecao = db.collection('documentos');
+  usuariosColecao = db.collection('usuarios');
   console.log('conectado');
 } catch (error) {
   console.log(error);
 }
 
-export { documentosColecao };
+export { documentosColecao, usuariosColecao };
