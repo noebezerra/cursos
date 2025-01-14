@@ -18,3 +18,6 @@ django-admin startproject setup .
 
 Iniciar servidor
 python manager.py runserver
+
+Criando um app
+python manager.py startapp nome_app
