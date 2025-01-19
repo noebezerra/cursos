@@ -4,7 +4,7 @@ python -m venv nome_ambiente_virtual
 Ativando o ambiente virtual
 source venv/bin/activate
 Desativar o ambiente virtual
-desactivate
+deactivate
 
 Install
 pip install django
@@ -21,3 +21,15 @@ python manager.py runserver
 
 Criando um app
 python manager.py startapp nome_app
+
+Migrations
+Criar novas migrações com base nas alterações dos modelos
+python manager.py makemigrations
+Sicronizar o estado do banco de dados com o conjunto atual de modelos e migrações
+python manager.py migrate
+
+Shell
+Acessar o shell
+python manager.py shell
+Sair do shell
+exit()
