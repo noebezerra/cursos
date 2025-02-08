@@ -1,38 +1,93 @@
-Criando ambiente virtual
+### Ambiente virtual Python
+
+Criando um ambiente virtual
+
+```bash
 python -m venv nome_ambiente_virtual
+```
 
-Ativando o ambiente virtual
+Ativando o ambiente
+
+```bash
 source venv/bin/activate
-Desativar o ambiente virtual
+```
+
+Desativando o ambiente
+
+```bash
 deactivate
+```
 
-Install
+### Instalação Django
+
+```
 pip install django
+```
 
-Dependências
+### Dependências
+
+Ver as dependências do projeto
+
+```bash
 pip freeze
+```
+
+Salvar as dependências em um arquivo `requirements.txt`
+
+```bash
 pip freeze > requirements.txt
+```
 
-Instalando dependências
+### Instalando dependências
+
+Instalar dependências que estão no arquivo `requirements.txt`
+
+```bash
 pip install -r requirements.txt
+```
 
-Criando projeto
+### Criando um projeto
+
+```bash
 django-admin startproject setup .
+```
 
-Iniciar servidor
+### Iniciar servidor
+
+```bash
 python manager.py runserver
+```
 
-Criando um app
+### Criando um app
+
+```bash
 python manager.py startapp nome_app
+```
 
-Migrations
+### Migrations
+
 Criar novas migrações com base nas alterações dos modelos
-python manager.py makemigrations
-Sicronizar o estado do banco de dados com o conjunto atual de modelos e migrações
-python manager.py migrate
 
-Shell
+```bash
+python manager.py makemigrations
+```
+
+Sicronizar o estado do banco de dados com o conjunto atual de modelos e migrações
+
+```bash
+python manager.py migrate
+```
+
+### Shell
+
 Acessar o shell
+
+```bash
 python manager.py shell
+```
+
 Sair do shell
+
+```bash
 exit()
+```
