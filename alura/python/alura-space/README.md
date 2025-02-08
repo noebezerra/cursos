@@ -13,6 +13,9 @@ Dependências
 pip freeze
 pip freeze > requirements.txt
 
+Instalando dependências
+pip install -r requirements.txt
+
 Criando projeto
 django-admin startproject setup .
 
