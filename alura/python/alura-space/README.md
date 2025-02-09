@@ -91,3 +91,39 @@ Sair do shell
 ```bash
 exit()
 ```
+
+# Iniciando o projeto
+
+Faça o clone do projeto e inicie um ambiente
+
+```bash
+python -m venv .venv
+```
+
+Ative o ambiente
+
+```bash
+source .venv/bin/activate
+```
+
+Instale as bibliotecas
+
+```bash
+pip install -r requirements.txt
+```
+
+Faça as migrações
+
+```bash
+python manager.py makemigrations
+```
+
+```bash
+python manager.py migrate
+```
+
+Crie um novo super usuario
+
+```bash
+python manager.py createsuperuser
+```
