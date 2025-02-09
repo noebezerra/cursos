@@ -127,3 +127,10 @@ Crie um novo super usuario
 ```bash
 python manager.py createsuperuser
 ```
+
+Crie uma secret key\
+Com o venv ativo execute o script
+
+```bash
+python scripts/secret_key_generator.py
+```

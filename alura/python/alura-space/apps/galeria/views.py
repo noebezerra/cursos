@@ -29,7 +29,7 @@ def buscar(request):
         if nome_a_buscar:
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar)
 
-    return render(request, 'galeria/buscar.html', {'cards': fotografias})
+    return render(request, 'galeria/index.html', {'cards': fotografias})
 
 @login_required
 @require_http_methods(['GET', 'POST'])
@@ -72,3 +72,7 @@ def deletar_imagem(request, foto_id):
         messages.error(request, 'Houve um erro ao tentar apagar a imagem')
     finally:
         return redirect('index')
+    
+def filtro(request, categoria):
+    fotografias = Fotografia.objects.filter(publicada=True, categoria=categoria)
+    return render(request, 'galeria/index.html', {'cards': fotografias})
