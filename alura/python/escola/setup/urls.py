@@ -14,3 +14,4 @@ urlpatterns = [
     path('estudante/<int:pk>/matriculas/', ListaMatriculasEstudante.as_view()),
     path('curso/<int:pk>/matriculas/', ListaMatriculasCurso.as_view()),
 ]
+
