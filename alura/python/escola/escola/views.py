@@ -28,6 +28,7 @@ class MatriculasViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     ordering_fields = ['estudante']
     throttle_classes = [UserRateThrottle, MatriculasAnonRateThrottle]
+    http_method_names = ['get', 'post']
 
 class ListaMatriculasEstudante(generics.ListAPIView):
     def get_queryset(self):
