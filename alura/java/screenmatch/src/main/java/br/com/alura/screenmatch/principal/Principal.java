@@ -92,5 +92,20 @@ public class Principal {
                                 " Data lançamento: " + e.getDataLancamento().format(dtf)
                 ));
 
+        // estatisticas
+        System.out.println("\nMédia de avaliações por temporada");
+        Map<Integer,Double> avaliacoesPorTemporada = episodios.stream()
+                .filter(e -> e.getAvaliacao() > 0)
+                .collect(Collectors.groupingBy(Episodio::getTemporada, Collectors.averagingDouble(Episodio::getAvaliacao)));
+        System.out.println(avaliacoesPorTemporada);
+
+        System.out.println("\nMédia de avaliações dos episódios");
+        DoubleSummaryStatistics est = episodios.stream()
+                .filter(e-> e.getAvaliacao() > 0)
+                .collect(Collectors.summarizingDouble(Episodio::getAvaliacao));
+        System.out.println("Qtd. de episódios: " + est.getCount());
+        System.out.println("Soma das avaliações: " + est.getSum());
+        System.out.println("Média das avaliações: " + est.getAverage());
+        System.out.println("Menor e maior avaliação: " + est.getMin() + " e " +  est.getMax());
     }
 }
